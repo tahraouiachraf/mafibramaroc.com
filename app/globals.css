@@ -1,0 +1,567 @@
+:root {
+  --accent: #dd9933;
+  --accent-strong: #ff9000;
+  --heading: #242e35;
+  --text: #5f676c;
+  --muted: #879198;
+  --line: #e7e7e7;
+  --light: #f7f7f7;
+  --white: #ffffff;
+  --footer: #1d252b;
+  --container: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--white);
+  color: var(--text);
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  line-height: 1.65;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.wrap {
+  margin: 0 auto;
+  max-width: var(--container);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.top-line {
+  background: #f5f5f5;
+  border-bottom: 1px solid var(--line);
+  color: #8b9499;
+  font-size: 12px;
+}
+
+.top-line__inner {
+  align-items: center;
+  display: flex;
+  gap: 22px;
+  min-height: 34px;
+}
+
+.top-line .socials {
+  margin-left: auto;
+}
+
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.header-inner {
+  align-items: center;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 190px 1fr auto auto;
+  min-height: 86px;
+}
+
+.brand img {
+  height: 62px;
+  object-fit: contain;
+  width: 166px;
+}
+
+.main-nav {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  justify-content: flex-end;
+}
+
+.main-nav a {
+  color: #333f46;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.main-nav a:hover {
+  color: var(--accent);
+}
+
+.search-button,
+.menu-button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: #333f46;
+  cursor: pointer;
+  display: inline-flex;
+  height: 38px;
+  justify-content: center;
+  width: 38px;
+}
+
+.menu-button {
+  display: none;
+}
+
+.home-slider {
+  background: #111;
+  min-height: 520px;
+  overflow: hidden;
+  position: relative;
+}
+
+.home-slider__bg,
+.eco-band__bg,
+.capacity-band__bg {
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.28)), url("/mafibramaroc/prod.jpg");
+  background-position: center;
+  background-size: cover;
+  inset: 0;
+  position: absolute;
+}
+
+.home-slider__content {
+  color: #fff;
+  padding-top: 170px;
+  position: relative;
+  z-index: 1;
+}
+
+.home-slider p {
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.home-slider h1 {
+  color: rgba(255, 255, 255, 0.36);
+  font-size: clamp(72px, 12vw, 145px);
+  letter-spacing: 0;
+  line-height: 0.9;
+  margin: 0 0 24px;
+}
+
+.home-slider span {
+  display: block;
+  font-size: 18px;
+  max-width: 620px;
+}
+
+.value-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(4, 1fr);
+  padding-bottom: 44px;
+  padding-top: 44px;
+}
+
+.value-grid article {
+  background: #fff;
+  border: 1px solid var(--line);
+  min-height: 174px;
+  padding: 28px 22px;
+  text-align: center;
+}
+
+.value-grid svg {
+  color: var(--accent);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--heading);
+  line-height: 1.28;
+  margin-top: 0;
+}
+
+.intro-line {
+  align-items: center;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr auto;
+  padding-bottom: 42px;
+  padding-top: 36px;
+}
+
+.intro-line h2 {
+  font-size: 19px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.intro-line a,
+.contact-form button {
+  background: var(--accent);
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 600;
+  padding: 13px 22px;
+}
+
+.home-products {
+  display: grid;
+  gap: 34px;
+  grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 70px;
+}
+
+.home-products h3,
+.page-intro h2 {
+  color: var(--accent-strong);
+  font-size: 22px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.home-products img {
+  border: 1px solid var(--line);
+  width: 100%;
+}
+
+.eco-band,
+.capacity-band {
+  min-height: 430px;
+  position: relative;
+}
+
+.eco-band__bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)), url("/mafibramaroc/070420132112041.jpg");
+}
+
+.capacity-band__bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("/mafibramaroc/prod.jpg");
+}
+
+.eco-band__content,
+.capacity-band__content {
+  color: #fff;
+  padding-bottom: 80px;
+  padding-top: 88px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+
+.eco-band h2,
+.capacity-band h2 {
+  color: #fff;
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 400;
+}
+
+.eco-band img,
+.capacity-band img {
+  margin: 34px auto 0;
+  max-width: 380px;
+  width: 70%;
+}
+
+.clients {
+  padding-bottom: 72px;
+  padding-top: 54px;
+  text-align: center;
+}
+
+.client-grid,
+.client-name-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 28px;
+}
+
+.client-grid span,
+.client-name-grid span {
+  border: 1px solid var(--line);
+  color: var(--heading);
+  font-weight: 600;
+  padding: 18px;
+}
+
+.page-title {
+  background: var(--light);
+  border-bottom: 1px solid var(--line);
+}
+
+.page-title__inner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  min-height: 120px;
+}
+
+.page-title h1 {
+  font-size: 34px;
+  margin: 0;
+}
+
+.page-title span {
+  background: #fff;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 8px 12px;
+}
+
+.page-intro {
+  padding-bottom: 30px;
+  padding-top: 46px;
+  text-align: center;
+}
+
+.product-list,
+.society-grid,
+.contact-grid,
+.text-page {
+  padding-bottom: 72px;
+  padding-top: 48px;
+}
+
+.product-row {
+  display: grid;
+  gap: 42px;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 58px;
+}
+
+.product-row--reverse .product-gallery {
+  grid-column: 2;
+}
+
+.product-row--reverse .product-copy {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.product-gallery {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.product-gallery img {
+  border: 1px solid var(--line);
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.product-copy h3,
+.contact-coords h3 {
+  color: var(--accent);
+  font-size: 24px;
+}
+
+.palette-note {
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.society-grid {
+  display: grid;
+  gap: 44px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.society-grid img {
+  margin-inline: auto;
+}
+
+.centered-copy {
+  padding-bottom: 76px;
+  padding-top: 54px;
+  text-align: center;
+}
+
+.map-strip iframe {
+  border: 0;
+  height: 300px;
+  width: 100%;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 46px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contact-form {
+  display: grid;
+  gap: 16px;
+}
+
+.contact-form label {
+  color: var(--heading);
+  display: grid;
+  gap: 7px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: 1px solid var(--line);
+  min-height: 42px;
+  padding: 10px 12px;
+}
+
+.contact-coords article {
+  border-top: 1px solid var(--line);
+  padding: 22px 0;
+}
+
+.text-page {
+  font-size: 16px;
+  max-width: 920px;
+}
+
+.text-page img {
+  margin: 24px auto 0;
+}
+
+.footer {
+  background: var(--footer);
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 13px;
+}
+
+.footer-inner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  min-height: 74px;
+}
+
+.footer nav {
+  display: flex;
+  gap: 20px;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 1050px) {
+  .header-inner {
+    grid-template-columns: 170px 1fr auto;
+  }
+
+  .main-nav {
+    background: #fff;
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.1);
+    display: grid;
+    left: 20px;
+    opacity: 0;
+    padding: 14px;
+    pointer-events: none;
+    position: absolute;
+    right: 20px;
+    top: 82px;
+    transform: translateY(-10px);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .main-nav--open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .menu-button {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 760px) {
+  .top-line__inner,
+  .footer-inner,
+  .page-title__inner,
+  .intro-line {
+    align-items: flex-start;
+    flex-direction: column;
+    display: flex;
+  }
+
+  .top-line .socials {
+    margin-left: 0;
+  }
+
+  .header-inner {
+    grid-template-columns: 1fr auto auto;
+    min-height: 76px;
+  }
+
+  .brand img {
+    height: 52px;
+    width: 140px;
+  }
+
+  .home-slider {
+    min-height: 420px;
+  }
+
+  .home-slider__content {
+    padding-top: 118px;
+  }
+
+  .value-grid,
+  .home-products,
+  .client-grid,
+  .client-name-grid,
+  .product-row,
+  .society-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-row--reverse .product-gallery,
+  .product-row--reverse .product-copy {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .value-grid {
+    padding-top: 28px;
+  }
+}
