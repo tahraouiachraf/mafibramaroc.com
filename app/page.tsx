@@ -1,12 +1,25 @@
-import { ArrowRight, Award, CheckCircle2, Clock, Factory, Leaf, PackageCheck, Ruler, ShieldCheck, Truck } from "lucide-react";
+import {
+  ArrowRight,
+  Award,
+  CheckCircle2,
+  ClipboardCheck,
+  Clock,
+  Factory,
+  Leaf,
+  MapPinned,
+  PackageCheck,
+  Ruler,
+  ShieldCheck,
+  Truck
+} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Chrome } from "./components/Chrome";
 
 const values: { title: string; text: string; Icon: LucideIcon }[] = [
-  { title: "Qualité", text: "Des produits conformes aux normes internationales.", Icon: Award },
-  { title: "Réactivité", text: "Une organisation pensée pour des livraisons rapides.", Icon: Clock },
-  { title: "Écologie", text: "Des emballages constitués majoritairement de bois.", Icon: Leaf },
-  { title: "Éthique", text: "Une entreprise engagée dans son territoire.", Icon: ShieldCheck }
+  { title: "Qualité contrôlée", text: "Production suivie, conformité export et exigences internationales.", Icon: Award },
+  { title: "Délais maîtrisés", text: "Stock de sécurité et centres de montage pour livraisons rapides.", Icon: Clock },
+  { title: "Bois responsable", text: "Emballages majoritairement constitués de bois et démarche durable.", Icon: Leaf },
+  { title: "Traçabilité", text: "Marquage, suivi des intrants et traitement conforme NIMP 15.", Icon: ShieldCheck }
 ];
 
 const clients = ["NESTLÉ", "PAPREC", "CMCP", "AGRISOUSS", "SOTHEMA", "COOPÉRATIVE ZAOUIA"];
@@ -50,6 +63,13 @@ const process = [
 
 const assurances = ["NIMP 15", "Traçabilité", "Marquage personnalisé", "Livraison rapide"];
 
+const capabilities: { title: string; text: string; Icon: LucideIcon }[] = [
+  { title: "Export fruits et légumes", text: "Emballages légers conçus pour les contraintes de l'export agricole.", Icon: PackageCheck },
+  { title: "Usage industriel", text: "Palettes, palox et emballages adaptés aux pièces lourdes ou encombrantes.", Icon: Factory },
+  { title: "Couverture nationale", text: "Unité principale et centres de montage pour servir plusieurs régions.", Icon: MapPinned },
+  { title: "Conformité documentaire", text: "Certificats, traçabilité et traitement bois pour les expéditions.", Icon: ClipboardCheck }
+];
+
 export default function Home() {
   return (
     <Chrome>
@@ -57,9 +77,12 @@ export default function Home() {
         <section className="home-hero">
           <div className="wrap home-hero__grid">
             <div className="home-hero__content" data-reveal>
-              <span className="eyebrow">Fabrication d'emballages et palettes bois</span>
-              <h1>MAFIBRA accompagne l'export agricole et l'industrie marocaine.</h1>
-              <p>Réactivité, écologie, traçabilité et qualité de production au service de vos besoins industriels.</p>
+              <span className="eyebrow">Fabrication bois pour export et industrie</span>
+              <h1>Emballages bois et palettes industrielles prêts pour vos flux professionnels.</h1>
+              <p>
+                MAFIBRA produit, marque et livre des solutions bois conformes pour l'export agricole,
+                la manutention et les besoins industriels au Maroc.
+              </p>
               <div className="assurance-list">
                 {assurances.map((item) => (
                   <span key={item}><CheckCircle2 size={16} /> {item}</span>
@@ -71,7 +94,12 @@ export default function Home() {
               </div>
             </div>
             <div className="home-hero__media" data-reveal>
-              <img src="/mafibramaroc/prod.jpg" alt="Unité de production Mafibra" />
+              <div className="hero-photo hero-photo--main">
+                <img src="/mafibramaroc/prod.jpg" alt="Unité de production Mafibra" />
+              </div>
+              <div className="hero-photo hero-photo--small">
+                <img src="/mafibramaroc/palette-1.jpg" alt="Palettes bois Mafibra" />
+              </div>
               <div className="hero-card">
                 <Ruler size={22} />
                 <strong>Production contrôlée</strong>
@@ -79,16 +107,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
-
-        <section className="wrap value-grid">
-          {values.map(({ title, text, Icon }) => (
-            <article key={title} data-reveal>
-              <Icon size={28} />
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
         </section>
 
         <section className="stats-band">
@@ -102,6 +120,18 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="proof-section">
+          <div className="wrap proof-grid">
+            {values.map(({ title, text, Icon }) => (
+              <article key={title} data-reveal>
+                <Icon size={26} />
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="wrap intro-line" data-reveal>
           <span className="section-kicker">Notre chaîne de valeur</span>
           <h2>
@@ -109,6 +139,24 @@ export default function Home() {
             le montage et la distribution de ses emballages bois.
           </h2>
           <a className="button button--primary" href="/societe">En savoir plus <ArrowRight size={17} /></a>
+        </section>
+
+        <section className="capability-section">
+          <div className="wrap section-heading" data-reveal>
+            <span className="section-kicker">Expertise Mafibra</span>
+            <h2>Une offre pensée pour les décideurs achat, logistique et production.</h2>
+          </div>
+          <div className="wrap capability-grid">
+            {capabilities.map(({ title, text, Icon }) => (
+              <article key={title} data-reveal>
+                <Icon size={26} />
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="program-section">
@@ -154,20 +202,32 @@ export default function Home() {
 
         <section className="eco-band">
           <div className="eco-band__bg" />
-          <div className="wrap eco-band__content" data-reveal>
-            <span className="section-kicker">Développement durable</span>
-            <h2>Une entreprise écologique et responsable</h2>
-            <p>Nos emballages sont constitués majoritairement de bois et s'inscrivent dans une démarche responsable.</p>
-            <img src="/mafibramaroc/nimp.jpg" alt="Certification NIMP 15" />
+          <div className="wrap eco-band__content">
+            <div data-reveal>
+              <span className="section-kicker">Développement durable</span>
+              <h2>Une entreprise écologique et responsable</h2>
+              <p>Nos emballages sont constitués majoritairement de bois et s'inscrivent dans une démarche responsable.</p>
+              <a className="button button--ghost" href="/developpement-durable">Voir nos engagements <ArrowRight size={17} /></a>
+            </div>
+            <img src="/mafibramaroc/nimp.jpg" alt="Certification NIMP 15" data-reveal />
           </div>
         </section>
 
         <section className="wrap clients">
+          <span className="section-kicker" data-reveal>Références</span>
           <h2 data-reveal>Ils nous font confiance</h2>
           <div className="client-grid" data-reveal>
             {clients.map((client) => (
               <span key={client}>{client}</span>
             ))}
+          </div>
+          <div className="final-cta" data-reveal>
+            <div>
+              <span className="section-kicker">Projet B2B</span>
+              <h2>Besoin d'un emballage bois ou d'une palette adaptée ?</h2>
+              <p>Contactez MAFIBRA pour préciser vos volumes, dimensions, délais et exigences export.</p>
+            </div>
+            <a className="button button--primary" href="/contact">Démarrer une demande <ArrowRight size={17} /></a>
           </div>
         </section>
       </main>
