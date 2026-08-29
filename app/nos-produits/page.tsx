@@ -1,3 +1,4 @@
+import { ArrowRight, CheckCircle2, Package, ShieldCheck, Truck } from "lucide-react";
 import { Chrome } from "../components/Chrome";
 
 const products = [
@@ -30,15 +31,36 @@ const products = [
   }
 ];
 
+const highlights = [
+  ["Export agricole", "Emballages légers pour fruits et légumes, avec marquage personnalisé."],
+  ["Industrie", "Palettes et emballages adaptés aux contraintes de manutention."],
+  ["Conformité", "Produits certifiés NIMP 15 avec traçabilité des intrants."]
+];
+
 export default function ProductsPage() {
   return (
     <Chrome>
       <main>
         <PageTitle title="Nos produits" />
         <section className="wrap page-intro" data-reveal>
+          <span className="section-kicker">Solutions bois</span>
           <h2>MAFIBRA offre 3 catégories de produits à ses clients</h2>
           <p>Tous nos produits sont certifiés conformes NIMP 15 et répondent aux normes internationales.</p>
         </section>
+
+        <section className="wrap product-highlights">
+          {highlights.map(([title, text], index) => {
+            const Icon = index === 0 ? Package : index === 1 ? Truck : ShieldCheck;
+            return (
+              <article key={title} data-reveal>
+                <Icon size={25} />
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            );
+          })}
+        </section>
+
         <section className="wrap product-list">
           {products.map((product, index) => (
             <article className={index % 2 ? "product-row product-row--reverse" : "product-row"} key={product.title} data-reveal>
@@ -48,13 +70,16 @@ export default function ProductsPage() {
                 ))}
               </div>
               <div className="product-copy">
+                <span className="product-index">0{index + 1}</span>
                 <h3>{product.title}</h3>
                 {product.text.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                <a className="product-link" href="/contact">Demander une information <ArrowRight size={16} /></a>
               </div>
             </article>
           ))}
         </section>
         <section className="wrap palette-note" data-reveal>
+          <CheckCircle2 size={30} />
           <h3>Palettes/couvercles</h3>
           <p>MAFIBRA bénéficie de lignes de montage automatisé assurant une production standardisée de palettes.</p>
           <p><strong>Type de palettes :</strong><br />2 entrées sur chevron ou 4 entrées sur dès.</p>
