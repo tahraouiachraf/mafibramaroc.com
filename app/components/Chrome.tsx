@@ -1,6 +1,7 @@
 "use client";
 
-import { Menu, Search, X } from "lucide-react";
+import { Facebook, Mail, MapPin, Menu, Phone, Search, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const menuItems = [
@@ -10,11 +11,13 @@ const menuItems = [
   ["Distribution", "/distribution"],
   ["Nos clients", "/nos-clients"],
   ["Développement durable", "/developpement-durable"],
-  ["Contact", "/contact"]
+  ["Contact", "/contact"],
+  ["Devis", "/devis"]
 ];
 
 export function Chrome({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,9 +37,10 @@ export function Chrome({ children }: { children: React.ReactNode }) {
     <>
       <div className="top-line">
         <div className="wrap top-line__inner">
-          <span>+212 523 35 63 81</span>
-          <a href="mailto:direction@mafibra.ma">direction@mafibra.ma</a>
-          <span className="socials">Facebook&nbsp;&nbsp;Twitter&nbsp;&nbsp;Google+</span>
+          <span><Phone size={14} /> +212 523 35 63 81</span>
+          <a href="mailto:direction@mafibra.ma"><Mail size={14} /> direction@mafibra.ma</a>
+          <span><MapPin size={14} /> M'Harza Essahel - Bir Jdid</span>
+          <span className="socials"><Facebook size={14} /> Mafibra Maroc</span>
         </div>
       </div>
 
@@ -48,7 +52,12 @@ export function Chrome({ children }: { children: React.ReactNode }) {
 
           <nav className={open ? "main-nav main-nav--open" : "main-nav"} aria-label="Navigation principale">
             {menuItems.map(([label, href]) => (
-              <a href={href} key={href} onClick={() => setOpen(false)}>
+              <a
+                className={pathname === href ? "is-active" : ""}
+                href={href}
+                key={href}
+                onClick={() => setOpen(false)}
+              >
                 {label}
               </a>
             ))}
@@ -61,19 +70,37 @@ export function Chrome({ children }: { children: React.ReactNode }) {
           <button className="menu-button" type="button" onClick={() => setOpen((value) => !value)} aria-label="Menu">
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
+
+          <a className="header-cta" href="/devis">Demander un devis</a>
         </div>
       </header>
 
       {children}
 
       <footer className="footer">
-        <div className="wrap footer-inner">
-          <span>Copyright 2017 Mafibra</span>
+        <div className="wrap footer-grid">
+          <div>
+            <img src="/mafibramaroc/mafibra.png" alt="Mafibra" />
+            <p>Fabrication d'emballages et palettes bois pour l'export agricole et l'industrie au Maroc.</p>
+          </div>
           <nav>
+            <h3>Navigation</h3>
             <a href="/">Accueil</a>
-            <a href="/recrutement">Recrutement</a>
+            <a href="/societe">Société</a>
+            <a href="/nos-produits">Nos produits</a>
+            <a href="/devis">Demande de devis</a>
             <a href="/contact">Contact</a>
           </nav>
+          <div>
+            <h3>Contact</h3>
+            <p>Route côtière d'Azemmour km 53.4</p>
+            <p>direction@mafibra.ma</p>
+            <p>+212 523 35 63 81</p>
+          </div>
+        </div>
+        <div className="wrap footer-bottom">
+          <span>Copyright 2017 Mafibra</span>
+          <a href="/recrutement">Recrutement</a>
         </div>
       </footer>
     </>
