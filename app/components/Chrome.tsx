@@ -11,7 +11,8 @@ const menuItems = [
   ["Distribution", "/distribution"],
   ["Nos clients", "/nos-clients"],
   ["Développement durable", "/developpement-durable"],
-  ["Contact", "/contact"]
+  ["Contact", "/contact"],
+  ["Devis", "/devis"]
 ];
 
 export function Chrome({ children }: { children: React.ReactNode }) {
@@ -70,7 +71,7 @@ export function Chrome({ children }: { children: React.ReactNode }) {
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
 
-          <a className="header-cta" href="/contact">Demander un devis</a>
+          <a className="header-cta" href="/devis">Demander un devis</a>
         </div>
       </header>
 
@@ -87,6 +88,7 @@ export function Chrome({ children }: { children: React.ReactNode }) {
             <a href="/">Accueil</a>
             <a href="/societe">Société</a>
             <a href="/nos-produits">Nos produits</a>
+            <a href="/devis">Demande de devis</a>
             <a href="/contact">Contact</a>
           </nav>
           <div>

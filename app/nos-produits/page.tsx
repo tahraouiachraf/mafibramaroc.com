@@ -5,6 +5,7 @@ const products = [
   {
     title: "Emballages bois fruits et légumes",
     images: ["emballage.jpg"],
+    specs: ["Export agricole", "Marquage FLEXO", "Certificat alimentarité"],
     text: [
       "Emballages légers bois est principalement destinés à l'exportation des fruits et légumes. Il est composé de quatre éléments en panneaux de bois, et d'un fond déroulé en bois ou en panneaux de bois, agrafés entre eux par du fil de fer galvanisé.",
       "Nos emballages bois destinés à l'exportation des fruits et légumes répondent aux normes de l'EACCE. Tous les intrants ont leur certificat d'alimentarité.",
@@ -14,6 +15,7 @@ const products = [
   {
     title: "Emballages bois industriels",
     images: ["prod.jpg"],
+    specs: ["Sur mesure", "Pièces lourdes", "Protection manutention"],
     text: [
       "Les emballages bois industriels sont utilisés pour la manutention et transport de pièces lourdes et encombrantes nécessitant une protection.",
       "MAFIBRA fourni des emballages sur mesure pour tout type de produit. Les besoins sont analysés par une équipe technique qui définit avec précision les caractéristiques propres à chaque demande."
@@ -22,11 +24,13 @@ const products = [
   {
     title: "Palettes",
     images: ["Palette_1.jpg", "Palette_2.jpg", "Palette_3.jpg"],
+    specs: ["2 entrées", "4 entrées", "Code de traçabilité"],
     text: ["MAFIBRA réalise divers types de palettes, optimisé en fonction des besoins industriels des clients ainsi que des transports."]
   },
   {
     title: "Palox",
     images: ["Palox_1.jpg", "Palox_2.jpg", "Palox_3.jpg"],
+    specs: ["350 à 750 kg", "Pastèque / melon", "Export agricole"],
     text: ["MAFIBRA produit également des palox ou palettes-caisses permettant l'export de produits agricoles tels que la pastèque, le melon, potiron, orange, etc..., allant de 350 à 750 kg."]
   }
 ];
@@ -72,8 +76,11 @@ export default function ProductsPage() {
               <div className="product-copy">
                 <span className="product-index">0{index + 1}</span>
                 <h3>{product.title}</h3>
+                <div className="spec-list">
+                  {product.specs.map((spec) => <span key={spec}>{spec}</span>)}
+                </div>
                 {product.text.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                <a className="product-link" href="/contact">Demander une information <ArrowRight size={16} /></a>
+                <a className="product-link" href="/devis">Demander une information <ArrowRight size={16} /></a>
               </div>
             </article>
           ))}

@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Chrome } from "./components/Chrome";
+import { CountUp } from "./components/CountUp";
 
 const values: { title: string; text: string; Icon: LucideIcon }[] = [
   { title: "Qualité contrôlée", text: "Production suivie, conformité export et exigences internationales.", Icon: Award },
@@ -25,9 +26,9 @@ const values: { title: string; text: string; Icon: LucideIcon }[] = [
 const clients = ["NESTLÉ", "PAPREC", "CMCP", "AGRISOUSS", "SOTHEMA", "COOPÉRATIVE ZAOUIA"];
 
 const stats = [
-  ["20M", "emballages produits par an"],
-  ["600K", "palettes produites par an"],
-  ["4 ha", "unité principale à M'Harza Sahel"]
+  { value: 20, suffix: "M", label: "emballages produits par an" },
+  { value: 600, suffix: "K", label: "palettes produites par an" },
+  { value: 4, suffix: " ha", label: "unité principale à M'Harza Sahel" }
 ];
 
 const programs: { title: string; text: string; image: string; Icon: LucideIcon; href: string }[] = [
@@ -111,10 +112,10 @@ export default function Home() {
 
         <section className="stats-band">
           <div className="wrap stats-grid" data-reveal>
-            {stats.map(([number, label]) => (
-              <article key={number}>
-                <strong>{number}</strong>
-                <span>{label}</span>
+            {stats.map((stat) => (
+              <article key={stat.label}>
+                <strong><CountUp value={stat.value} suffix={stat.suffix} /></strong>
+                <span>{stat.label}</span>
               </article>
             ))}
           </div>
@@ -227,7 +228,7 @@ export default function Home() {
               <h2>Besoin d'un emballage bois ou d'une palette adaptée ?</h2>
               <p>Contactez MAFIBRA pour préciser vos volumes, dimensions, délais et exigences export.</p>
             </div>
-            <a className="button button--primary" href="/contact">Démarrer une demande <ArrowRight size={17} /></a>
+            <a className="button button--primary" href="/devis">Démarrer une demande <ArrowRight size={17} /></a>
           </div>
         </section>
       </main>
