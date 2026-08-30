@@ -75,6 +75,15 @@ export function Chrome({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
+      {open && (
+        <button
+          className="mobile-menu-backdrop"
+          type="button"
+          aria-label="Fermer le menu"
+          onClick={() => setOpen(false)}
+        />
+      )}
+
       {children}
 
       <footer className="footer">
