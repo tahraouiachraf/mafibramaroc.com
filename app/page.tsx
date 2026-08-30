@@ -26,8 +26,8 @@ const values: { title: string; text: string; Icon: LucideIcon }[] = [
 const clients = ["NESTLÉ", "PAPREC", "CMCP", "AGRISOUSS", "SOTHEMA", "COOPÉRATIVE ZAOUIA"];
 
 const stats = [
-  { value: 20, suffix: "M", label: "emballages produits par an" },
-  { value: 600, suffix: "K", label: "palettes produites par an" },
+  { value: 20, suffix: " M+", label: "emballages produits par an" },
+  { value: 600, suffix: " K+", label: "palettes produites par an" },
   { value: 4, suffix: " ha", label: "unité principale à M'Harza Sahel" }
 ];
 
@@ -79,7 +79,7 @@ export default function Home() {
           <div className="wrap home-hero__grid">
             <div className="home-hero__content" data-reveal>
               <span className="eyebrow">Fabrication bois pour export et industrie</span>
-              <h1>Emballages bois et palettes industrielles prêts pour vos flux professionnels.</h1>
+              <h1>Des emballages bois fiables pour protéger vos produits et sécuriser vos exportations.</h1>
               <p>
                 MAFIBRA produit, marque et livre des solutions bois conformes pour l'export agricole,
                 la manutention et les besoins industriels au Maroc.
@@ -228,7 +228,7 @@ export default function Home() {
               <h2>Besoin d'un emballage bois ou d'une palette adaptée ?</h2>
               <p>Contactez MAFIBRA pour préciser vos volumes, dimensions, délais et exigences export.</p>
             </div>
-            <a className="button button--primary" href="/devis">Démarrer une demande <ArrowRight size={17} /></a>
+            <a className="button button--primary" href="/devis">Recevoir mon devis <ArrowRight size={17} /></a>
           </div>
         </section>
       </main>

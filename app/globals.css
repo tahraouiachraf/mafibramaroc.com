@@ -40,6 +40,15 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -1270,7 +1279,7 @@ h4 {
   }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 900px) {
   .header-inner {
     grid-template-columns: 170px 1fr auto;
   }
