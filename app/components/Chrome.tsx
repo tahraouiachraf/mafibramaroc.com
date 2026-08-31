@@ -1,6 +1,6 @@
 "use client";
 
-import { Facebook, Mail, MapPin, Menu, Phone, Search, X } from "lucide-react";
+import { Facebook, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -37,7 +37,7 @@ export function Chrome({ children }: { children: React.ReactNode }) {
     <>
       <div className="top-line">
         <div className="wrap top-line__inner">
-          <span><Phone size={14} /> +212 523 35 63 81</span>
+          <a href="tel:+212523356381"><Phone size={14} /> +212 523 35 63 81</a>
           <a href="mailto:direction@mafibra.ma"><Mail size={14} /> direction@mafibra.ma</a>
           <span><MapPin size={14} /> M'Harza Essahel - Bir Jdid</span>
           <span className="socials"><Facebook size={14} /> Mafibra Maroc</span>
@@ -50,7 +50,7 @@ export function Chrome({ children }: { children: React.ReactNode }) {
             <img src="/mafibramaroc/mafibra.png" alt="Mafibramaroc.com" />
           </a>
 
-          <nav className={open ? "main-nav main-nav--open" : "main-nav"} aria-label="Navigation principale">
+          <nav id="main-navigation" className={open ? "main-nav main-nav--open" : "main-nav"} aria-label="Navigation principale">
             {menuItems.map(([label, href]) => (
               <a
                 className={pathname === href ? "is-active" : ""}
@@ -63,17 +63,22 @@ export function Chrome({ children }: { children: React.ReactNode }) {
             ))}
           </nav>
 
-          <button className="search-button" type="button" aria-label="Recherche">
-            <Search size={18} />
-          </button>
-
-          <button className="menu-button" type="button" onClick={() => setOpen((value) => !value)} aria-label="Menu">
+          <button className="menu-button" type="button" onClick={() => setOpen((value) => !value)} aria-label={open ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={open} aria-controls="main-navigation">
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
 
           <a className="header-cta" href="/devis">Demander un devis</a>
         </div>
       </header>
+
+      {open && (
+        <button
+          className="mobile-menu-backdrop"
+          type="button"
+          aria-label="Fermer le menu"
+          onClick={() => setOpen(false)}
+        />
+      )}
 
       {children}
 
@@ -93,9 +98,9 @@ export function Chrome({ children }: { children: React.ReactNode }) {
           </nav>
           <div>
             <h3>Contact</h3>
-            <p>Route côtière d'Azemmour km 53.4</p>
-            <p>direction@mafibra.ma</p>
-            <p>+212 523 35 63 81</p>
+            <p>Route côtière d&apos;Azemmour km 53.4</p>
+            <p><a href="mailto:direction@mafibra.ma">direction@mafibra.ma</a></p>
+            <p><a href="tel:+212523356381">+212 523 35 63 81</a></p>
           </div>
         </div>
         <div className="wrap footer-bottom">
