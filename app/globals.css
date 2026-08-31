@@ -1332,7 +1332,7 @@ h4 {
 
   .main-nav a {
     align-items: center;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 0;
     border-radius: 0;
     color: var(--ink-soft);
     display: flex;
@@ -1340,8 +1340,11 @@ h4 {
     font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.015em;
+    line-height: 1.35;
     min-height: 52px;
     padding: 14px 16px;
+    text-align: left;
+    white-space: normal;
     transition: background 180ms ease, color 180ms ease, padding 180ms ease, transform 180ms ease;
   }
 
@@ -1356,15 +1359,18 @@ h4 {
   .main-nav a.is-active {
     border-left: 3px solid var(--accent-strong);
     font-weight: 800;
+    padding-left: 19px;
   }
 
   .main-nav a:last-child {
+    align-self: flex-start;
     background: var(--accent-strong);
     border-bottom: 0;
     color: var(--surface);
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 18px;
-    text-align: center;
+    text-align: left;
+    width: 100%;
   }
 
   .main-nav a:last-child:hover {
