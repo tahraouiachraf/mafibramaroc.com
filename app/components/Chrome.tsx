@@ -1,6 +1,6 @@
 "use client";
 
-import { Facebook, Mail, MapPin, Menu, Phone, Search, X } from "lucide-react";
+import { Facebook, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -62,10 +62,6 @@ export function Chrome({ children }: { children: React.ReactNode }) {
               </a>
             ))}
           </nav>
-
-          <button className="search-button" type="button" aria-label="Recherche">
-            <Search size={18} />
-          </button>
 
           <button className="menu-button" type="button" onClick={() => setOpen((value) => !value)} aria-label={open ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={open} aria-controls="main-navigation">
             {open ? <X size={22} /> : <Menu size={22} />}
